@@ -1,9 +1,6 @@
-//import { useState, useEffect } from "react";
-//import axios from "axios";
-import { Card, Divider, Input, Button } from "antd";
+import { Card, Row, Col, Divider, Input, Button } from "antd";
 import { Link } from "react-router-dom";
-
-export function Menu() {
+export function Favorites() {
   return (
     <>
       <Card>
