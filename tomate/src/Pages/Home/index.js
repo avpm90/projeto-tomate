@@ -1,25 +1,27 @@
-import { Card, Button } from "antd";
+import { Col, Button, Divider } from "antd";
 import { Link } from "react-router-dom";
 export function Home() {
   return (
     <>
-      <Card>
-        <Link to="/menu">
-          <Button>
+      <nav>
+        <Link to="/login" style={{ cursor: "pointer" }}>
+          <h4>Login</h4>
+        </Link>
+      </nav>
+      <Divider></Divider>
+      <div>
+        <Col>
+          <Link to="/menu" style={{ cursor: "pointer" }}>
             <h2>Cardápio</h2>
-          </Button>
-        </Link>
-        <Link to="/contacts">
-          <Button>
+          </Link>
+          <Link to="/contact" style={{ cursor: "pointer" }}>
             <h2>Contato</h2>
-          </Button>
-        </Link>
-        <Link to="/us">
-          <Button>
+          </Link>
+          <Link to="/us" style={{ cursor: "pointer" }}>
             <h2>Sobre Nós</h2>
-          </Button>
-        </Link>
-      </Card>
+          </Link>
+        </Col>
+      </div>
     </>
   );
 }

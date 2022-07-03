@@ -15,9 +15,16 @@ export function Menu() {
   return (
     <>
       <Card>
-        <Link to="/">
+        <Link to="/" style={{ cursor: "pointer" }}>
           <Button>
-            <h2>Home</h2>
+            <h3>Home</h3>
+          </Button>
+        </Link>
+        <Divider></Divider>
+
+        <Link to="/cart" style={{ cursor: "pointer" }}>
+          <Button style={{ cursor: "pointer" }}>
+            <h3>Adicionar ao Carrinho</h3>
           </Button>
         </Link>
       </Card>
