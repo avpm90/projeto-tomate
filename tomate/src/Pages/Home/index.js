@@ -1,4 +1,4 @@
-import { Card,  Button } from "antd";
+import { Card, Button } from "antd";
 import { Link } from "react-router-dom";
 export function Home() {
   return (
@@ -6,18 +6,22 @@ export function Home() {
       <Card>
         <Link to="/menu">
           <Button>
-            <h2>Menu</h2>
+            <h2>Cardápio</h2>
           </Button>
         </Link>
-        <Link to="/favs">
+        <Link to="/contacts">
           <Button>
-            <h2>Favorites</h2>
+            <h2>Contato</h2>
+          </Button>
+        </Link>
+        <Link to="/us">
+          <Button>
+            <h2>Sobre Nós</h2>
           </Button>
         </Link>
       </Card>
     </>
   );
 }
-
 
 //Row, Col, Divider, Input,

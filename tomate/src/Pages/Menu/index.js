@@ -1,9 +1,17 @@
-//import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 //import axios from "axios";
 import { Card, Divider, Input, Button } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Menu() {
+  const [add, setAdd] = useState();
+  const navigate = useNavigate();
+
+  //  function handleAdd() {
+  //    setAdd();
+  //    navigate("/cart");
+  //  }
+
   return (
     <>
       <Card>
@@ -16,3 +24,5 @@ export function Menu() {
     </>
   );
 }
+
+// <Button onClick={handleAdd}>Adicione ao Carrinho</Button>
