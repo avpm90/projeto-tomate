@@ -1,4 +1,4 @@
-import { Card, Button, Row, Col } from "antd";
+/* import { Card, Button, Row, Col } from "antd";
 import { Link, useParams } from "react-router-dom";
 
 export function Home2() {
@@ -23,4 +23,4 @@ export function Home2() {
       </body>
     </>
   );
-}
+} */

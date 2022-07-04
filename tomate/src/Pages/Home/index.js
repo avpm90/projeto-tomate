@@ -3,11 +3,7 @@ import { Link } from "react-router-dom";
 export function Home() {
   return (
     <>
-      <nav>
-        <Link to="/login" style={{ cursor: "pointer" }}>
-          <h4>Login</h4>
-        </Link>
-      </nav>
+     
       <Divider></Divider>
       <div>
         <Col>
@@ -27,3 +23,8 @@ export function Home() {
 }
 
 //Row, Col, Divider, Input,
+//<nav>
+//<Link to="/login" style={{ cursor: "pointer" }}>
+//  <h4>Login</h4>
+//</Link>
+//</nav>

@@ -3,27 +3,28 @@ import { Link } from "react-router-dom";
 export function Contacts() {
   return (
     <>
-      <Link
-        to={{
-          pathname:
-            "https://www.facebook.com/Pizza-Tomate-Ironhack-109843898445268",
-        }}
-        target="_blank"
-      >
-        {" "}
-        <h2>FB</h2>
-      </Link>
-      <Link
-        to={{
-          pathname: "https://www.instagram.com/pizzatomateironhack/",
-        }}
-        target="_blank"
-      >
-        {" "}
-        <h2>IG</h2>
-      </Link>
-
-      <div>
+      <nav>
+        <Link
+          to={{
+            pathname:
+              "https://www.facebook.com/Pizza-Tomate-Ironhack-109843898445268",
+          }}
+          target="_blank"
+        >
+          {" "}
+          <h2>FB</h2>
+        </Link>
+        <Link
+          to={{
+            pathname: "https://www.instagram.com/pizzatomateironhack/",
+          }}
+          target="_blank"
+        >
+          {" "}
+          <h2>IG</h2>
+        </Link>
+      </nav>
+      <Divider>
         <iframe
           title="This is a unique title"
           src={
@@ -35,7 +36,7 @@ export function Contacts() {
             referrerPolicy: "no-referrer-when-downgrade",
           }}
         ></iframe>
-      </div>
+      </Divider>
 
       <Card>
         <Link to="/" style={{ cursor: "pointer" }}>
