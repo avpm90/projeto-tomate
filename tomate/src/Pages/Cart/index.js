@@ -28,19 +28,23 @@ export function Cart() {
       {order.map((currentOrder) => {
         return (
           <>
-            <p>{currentOrder.login}</p>
-            {currentOrder.order.map((cE) => {
-              return (
-                <>
-                  <p>{cE.Sabor}</p>
-                  <p>{cE.Ingredientes}</p>{" "}
-                </>
-              );
-            })}
-            <Link to={`/edit/${currentOrder._id}`}>Edit</Link>
+            <Card style={{ width: 300, margin: 100, borderRadius: 50 }}>
+              <p>
+                <h2>{currentOrder.login}</h2>
+              </p>
+              {currentOrder.order.map((cE) => {
+                return (
+                  <>
+                    <p>{cE.Sabor}</p>
+                  </>
+                );
+              })}
+              <Link to={`/edit/${currentOrder._id}`}>Edit</Link>
+            </Card>
           </>
         );
       })}
+
       <Divider></Divider>
       <Button style={{ cursor: "pointer" }}>Finalize seu pedido</Button>
     </div>
