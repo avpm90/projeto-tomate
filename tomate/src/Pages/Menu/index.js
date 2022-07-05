@@ -12,13 +12,16 @@ export function Menu() {
     order: [],
   });
 
+
+ function handleAdd(done) {
+    setCart({ ...cart, order: [...cart.order, done] });
+  }
+
   function handleChange(e) {
     setCart({ ...cart, [e.target.name]: e.target.value });
   }
 
-  function handleAdd(done) {
-    setCart({ ...cart, order: [...cart.order, done] });
-  }
+ 
 
   useEffect(() => {
     async function fetchMenu() {
@@ -60,7 +63,7 @@ export function Menu() {
         .map((currentMenu) => {
           return (
             <Card
-              key={currentMenu.sabor}
+              key={currentMenu._id}
               style={{
                 width: 400,
                 margin: 10,

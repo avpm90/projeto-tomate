@@ -28,14 +28,15 @@ export function Cart() {
       {order.map((currentOrder) => {
         return (
           <>
-            <Card style={{ width: 300, margin: 100, borderRadius: 50 }}>
-              <p>
-                <h2>{currentOrder.login}</h2>
-              </p>
+            <Card
+              key={currentOrder._id}
+              style={{ width: 300, margin: 100, borderRadius: 50 }}
+            >
+              <strong>{currentOrder.login}</strong>
               {currentOrder.order.map((cE) => {
                 return (
                   <>
-                    <p>{cE.Sabor}</p>
+                    <p key={cE._id}>{cE.Sabor}</p>
                   </>
                 );
               })}

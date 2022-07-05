@@ -5,39 +5,78 @@ import { Divider, Col, Row, Button, Form, Input, Card } from "antd";
 
 export function Edit() {
   const { id } = useParams();
-  const [change, setChange] = useState([]);
+  const [cart, setCart] = useState({
+    order: [{ Sabor: "", Ingredientes: "" }],
+  });
+  const [orders, setOrders] = useState();
   const navigate = useNavigate();
-  const [finalOrder, setFinalOrder] = useState([]);
-
+  const { TextArea } = Input;
   useEffect(() => {
     async function fetchId() {
       const response = await axios.get(
         `https://ironrest.herokuapp.com/projeto-tomate-angelo/${id}`
       );
-      setChange(response.data);
-      setFinalOrder([...response.data.order]);
+      setCart(response.data);
+      setOrders(response.data.order);
     }
     fetchId();
   }, [id]);
 
+  function handleChange(e, cC) {
+    const clone = { ...cC };
+    clone.Ingredientes = e.target.value;
+
+    console.log(clone);
+    console.log(orders);
+  }
+
+  async function deleteOrder() {
+    await axios.delete(
+      `https://ironrest.herokuapp.com/projeto-tomate-angelo/${id}`
+    );
+    navigate("/menu");
+  }
+  async function handleFinal(e) {
+    e.preventDefault();
+    try {
+      await axios.put(
+        `https://ironrest.herokuapp.com/projeto-tomate-angelo/${id}`
+      );
+      navigate("/order");
+    } catch (err) {
+      console.log(err);
+    }
+  }
   return (
     <>
       <Card style={{ width: 300, margin: 100, borderRadius: 50 }}>
-        <p>{change.login}</p>
+        <p>{cart.login}</p>
         <Divider></Divider>
-        {finalOrder.map((cC) => {
+        {cart.order.map((cC) => {
           return (
-            <>
+            <div key={cC.Sabor}>
               <p>{cC.Sabor}</p>
               <p>{cC.Ingredientes}</p>
-              <Button style={{ width: 100, margin: 10, borderRadius: 50 }}>
-                Editar
-              </Button>
-            </>
+              <Form>
+                <TextArea
+                  name={"Ingredientes"}
+                  rows={4}
+                  onChange={(e) => {
+                    handleChange(e, cC);
+                  }}
+                />{" "}
+                <Button style={{ width: 120, margin: 10, borderRadius: 50 }}>
+                  Edit
+                </Button>
+              </Form>
+            </div>
           );
         })}
       </Card>{" "}
-      <Button style={{ width: 120, margin: 10, borderRadius: 50 }}>
+      <Button
+        onClick={deleteOrder}
+        style={{ width: 120, margin: 10, borderRadius: 50 }}
+      >
         Deletar Pedido
       </Button>
       <Button style={{ width: 120, margin: 10, borderRadius: 50 }}>
