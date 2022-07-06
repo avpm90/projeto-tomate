@@ -5,16 +5,14 @@ import { Divider, Col, Row, Button, Form, Input, Card } from "antd";
 
 export function Edit() {
   const { id } = useParams();
-  const { TextArea } = Input;
-
   const [cart, setCart] = useState({
     order: [{ Sabor: "", Ingredientes: "" }],
   });
-  const [orders, setOrders] = useState();
-  // const [login, setLogin] = useState();
-  // const [sabor, setSabor] = useState();
-  // const [ingre, setIngre] = useState();
+  const [orders, setOrders] = useState([]);
+  const [edit, setEdit] = useState([]);
+  
   const navigate = useNavigate();
+  const { TextArea } = Input;
   useEffect(() => {
     async function fetchId() {
       const response = await axios.get(
@@ -31,7 +29,6 @@ export function Edit() {
     clone.Ingredientes = e.target.value;
 
     console.log(clone);
-    console.log(orders);
   }
 
   async function deleteOrder() {
@@ -56,7 +53,7 @@ export function Edit() {
       <Card style={{ width: 300, margin: 100, borderRadius: 50 }}>
         <p>{cart.login}</p>
         <Divider></Divider>
-        {cart.order.map((cC) => {
+        {orders.map((cC) => {
           return (
             <div key={cC.Sabor}>
               <p>{cC.Sabor}</p>
