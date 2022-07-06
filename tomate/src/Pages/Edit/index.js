@@ -5,12 +5,16 @@ import { Divider, Col, Row, Button, Form, Input, Card } from "antd";
 
 export function Edit() {
   const { id } = useParams();
+  const { TextArea } = Input;
+
   const [cart, setCart] = useState({
     order: [{ Sabor: "", Ingredientes: "" }],
   });
   const [orders, setOrders] = useState();
+  // const [login, setLogin] = useState();
+  // const [sabor, setSabor] = useState();
+  // const [ingre, setIngre] = useState();
   const navigate = useNavigate();
-  const { TextArea } = Input;
   useEffect(() => {
     async function fetchId() {
       const response = await axios.get(

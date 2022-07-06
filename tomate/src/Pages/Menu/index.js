@@ -47,6 +47,13 @@ export function Menu() {
 
   return (
     <>
+    <Divider></Divider>
+    <Link to="/" style={{ cursor: "pointer" }}>
+        <Button>
+          <h3>Home</h3>
+        </Button>
+      </Link>
+      <Divider></Divider>
       {menu
         .sort((a, b) => {
           return a.Sabor - b.Sabor;
@@ -87,8 +94,8 @@ export function Menu() {
             </Card>
           );
         })}
+      <Divider></Divider>
       <form>
-        <Divider></Divider>
         <Card
           style={{ width: 500, borderRadius: "20px", justifyContent: "center" }}
         >
@@ -109,14 +116,6 @@ export function Menu() {
           <Button onClick={handleSubmit}>Ir para o carrinho</Button>
         </Card>
       </form>
-      <Link to="/" style={{ cursor: "pointer" }}>
-        <Button>
-          <h3>Home</h3>
-        </Button>
-      </Link>
     </>
   );
 }
-
-// <Button onClick={handleAdd}>Adicione ao Carrinho</Button>
-// <Button onclick={handleAddCart}></Button>

@@ -17,9 +17,15 @@ function App() {
         <Route
           path="/menu"
           element={
-            <Row style={{backgroundColor:"beige", width:"80%", justifyContent: "space-evenly" }}>
+            <Col
+              style={{
+                backgroundColor: "beige",
+                width: "100%",
+                justifyContent: "space-evenly",
+              }}
+            >
               <Menu />
-            </Row>
+            </Col>
           }
         />
         <Route path="/contact" element={<Contacts />} />
