@@ -1,8 +1,9 @@
-import { Card, Row, Col, Divider, Input, Button, FacebookOutlined } from "antd";
+import { Card, Row, Col, Divider, Input, Button } from "antd";
+import { InstagramFilled, FacebookFilled } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 export function Contacts() {
   return (
-    <>
+    <div>
       <nav>
         <Link
           to={{
@@ -11,17 +12,16 @@ export function Contacts() {
           }}
           target="_blank"
         >
-          {" "}
-          <h2>FB</h2>
+          <FacebookFilled style={{ fontSize: "50px", color: "blue" }} />
         </Link>
+
         <Link
           to={{
             pathname: "https://www.instagram.com/pizzatomateironhack/",
           }}
           target="_blank"
         >
-          {" "}
-          <h2>IG</h2>
+          <InstagramFilled style={{ fontSize: "50px", color: "pink" }} />
         </Link>
       </nav>
       <Divider>
@@ -45,6 +45,6 @@ export function Contacts() {
           </Button>
         </Link>
       </Card>
-    </>
+    </div>
   );
 }

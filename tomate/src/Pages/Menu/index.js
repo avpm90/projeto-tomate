@@ -12,16 +12,13 @@ export function Menu() {
     order: [],
   });
 
-
- function handleAdd(done) {
+  function handleAdd(done) {
     setCart({ ...cart, order: [...cart.order, done] });
   }
 
   function handleChange(e) {
     setCart({ ...cart, [e.target.name]: e.target.value });
   }
-
- 
 
   useEffect(() => {
     async function fetchMenu() {
@@ -50,12 +47,6 @@ export function Menu() {
 
   return (
     <>
-      <Link to="/" style={{ cursor: "pointer" }}>
-        <Button>
-          <h3>Home</h3>
-        </Button>
-      </Link>
-      <Divider></Divider>
       {menu
         .sort((a, b) => {
           return a.Sabor - b.Sabor;
@@ -68,6 +59,7 @@ export function Menu() {
                 width: 400,
                 margin: 10,
                 borderRadius: 50,
+                backgroundColor: "beige",
               }}
             >
               <img
@@ -85,6 +77,7 @@ export function Menu() {
               </p>
               <p>Ingredientes: {currentMenu.Ingredientes}</p>
               <Button
+                style={{ borderRadius: "30px" }}
                 onClick={() => {
                   handleAdd(currentMenu);
                 }}
@@ -95,7 +88,10 @@ export function Menu() {
           );
         })}
       <form>
-        <Card style={{ width: 400, margin: 10, borderRadius: 50 }}>
+        <Divider></Divider>
+        <Card
+          style={{ width: 500, borderRadius: "20px", justifyContent: "center" }}
+        >
           <label>Login</label>
           <Input
             value={menu.login}
@@ -113,7 +109,11 @@ export function Menu() {
           <Button onClick={handleSubmit}>Ir para o carrinho</Button>
         </Card>
       </form>
-      ;
+      <Link to="/" style={{ cursor: "pointer" }}>
+        <Button>
+          <h3>Home</h3>
+        </Button>
+      </Link>
     </>
   );
 }
